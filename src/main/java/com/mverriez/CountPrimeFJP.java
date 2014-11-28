@@ -1,5 +1,7 @@
 package com.mverriez;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 import java.util.stream.IntStream;
@@ -50,8 +52,6 @@ public class CountPrimeFJP {
         }
 
         public boolean isPrime(Integer n){
-/*            final String name = Thread.currentThread().getName();
-            map.compute(name, (k, v) -> v==null ? 1:v+1);*/
             if (n % 2 == 0) return false;
             for (int i = 3; i * i <= n; i += 2) {
                 if (n % i == 0) {

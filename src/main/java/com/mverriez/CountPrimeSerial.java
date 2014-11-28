@@ -1,16 +1,18 @@
 package com.mverriez;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.IntStream;
 
 /**
  * @author mverriez
  */
-public class CountPrimeThread {
-
+public class CountPrimeSerial {
+;
     public long count(Integer limit){
-        return IntStream.rangeClosed(1, limit).parallel().filter(CountPrimeThread::isPrime).count();
+        int count=0;
+        for (int i = 0; i <= limit; i++) {
+            if (isPrime(i))count++;
+        }
+        return count;
     }
 
     public static boolean isPrime(Integer n){
